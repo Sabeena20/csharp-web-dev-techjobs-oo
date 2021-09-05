@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechJobsOO;
+using System;
+
 namespace TechJobsTests
 {
     [TestClass]
@@ -42,7 +44,7 @@ namespace TechJobsTests
 
         [TestMethod]
 
-        public void ToStringTest()
+        public void ToStringTestNewLine()
         {
             Employer EmployerName = new Employer("ACME");
             Location EmployerLocation = new Location("Desert");
@@ -50,9 +52,25 @@ namespace TechJobsTests
             CoreCompetency JobCoreCompetency = new CoreCompetency("Persistence");
             Job job1 = new Job("Product tester", EmployerName, EmployerLocation, JobType, JobCoreCompetency);
 
-            Assert.IsTrue("ID: 1", job1.Id.ToString());
-            Assert.IsTrue("Name: ", job1.Id.ToString());
+            string[] values = job1.ToString().Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
 
+            Assert.AreEqual(values[0], Environment.NewLine);
+            Assert.AreEqual(values[6], Environment.NewLine);
+
+        }
+
+        public void ToStringTestLabel()
+        {
+            Employer EmployerName = new Employer("ACME");
+            Location EmployerLocation = new Location("Desert");
+            PositionType JobType = new PositionType("Quality control");
+            CoreCompetency JobCoreCompetency = new CoreCompetency("Persistence");
+            Job job1 = new Job("Product tester", EmployerName, EmployerLocation, JobType, JobCoreCompetency);
+
+            string[] values = job1.ToString().Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
+
+            Assert.AreEqual(values[0], Environment.NewLine);
+            Assert.AreEqual(values[6], Environment.NewLine);
 
         }
 
