@@ -33,12 +33,27 @@ namespace TechJobsTests
         }
 
         [TestMethod]
-
         public void TestJobsForEquality()
         {
             Job job1 = new Job();
             Job job2 = new Job();
             Assert.IsFalse(job1.Equals(job2));
+        }
+
+        [TestMethod]
+
+        public void ToStringTest()
+        {
+            Employer EmployerName = new Employer("ACME");
+            Location EmployerLocation = new Location("Desert");
+            PositionType JobType = new PositionType("Quality control");
+            CoreCompetency JobCoreCompetency = new CoreCompetency("Persistence");
+            Job job1 = new Job("Product tester", EmployerName, EmployerLocation, JobType, JobCoreCompetency);
+
+            Assert.IsTrue("ID: 1", job1.Id.ToString());
+            Assert.IsTrue("Name: ", job1.Id.ToString());
+
+
         }
 
     }
