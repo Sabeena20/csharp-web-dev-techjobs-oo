@@ -52,13 +52,15 @@ namespace TechJobsTests
             CoreCompetency JobCoreCompetency = new CoreCompetency("Persistence");
             Job job1 = new Job("Product tester", EmployerName, EmployerLocation, JobType, JobCoreCompetency);
 
-            string[] values = job1.ToString().Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
+            string[] values = job1.ToString().Split(Environment.NewLine);
 
-            Assert.AreEqual(values[0], Environment.NewLine);
-            Assert.AreEqual(values[6], Environment.NewLine);
+            Console.WriteLine(job1.ToString());
+            Assert.AreEqual("", values[0]);
+            Assert.AreEqual("", values[7]);
 
         }
 
+        [TestMethod]
         public void ToStringTestLabel()
         {
             Employer EmployerName = new Employer("ACME");
@@ -66,11 +68,15 @@ namespace TechJobsTests
             PositionType JobType = new PositionType("Quality control");
             CoreCompetency JobCoreCompetency = new CoreCompetency("Persistence");
             Job job1 = new Job("Product tester", EmployerName, EmployerLocation, JobType, JobCoreCompetency);
+            
+            string[] values = job1.ToString().Split(Environment.NewLine);
 
-            string[] values = job1.ToString().Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
-
-            Assert.AreEqual(values[0], Environment.NewLine);
-            Assert.AreEqual(values[6], Environment.NewLine);
+            Assert.AreEqual("ID: 6", values[1]);
+            Assert.AreEqual("Name: Product tester", values[2]);
+            Assert.AreEqual("Employer: ACME", values[3]);
+            Assert.AreEqual("Location: Desert", values[4]);
+            Assert.AreEqual("Position Type: Quality control", values[5]);
+            Assert.AreEqual("Core Competency: Persistence", values[6]);
 
         }
 
