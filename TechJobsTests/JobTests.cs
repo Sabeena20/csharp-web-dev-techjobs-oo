@@ -19,7 +19,6 @@ namespace TechJobsTests
 
         // TEST FOR SETTING ALL FIELDS
         [TestMethod]
-
         public void TestJobConstructorSetsAllFields()
         {
             Employer EmployerName = new Employer("ACME");
@@ -75,7 +74,7 @@ namespace TechJobsTests
             
             string[] values = job1.ToString().Split(Environment.NewLine);
 
-            Assert.AreEqual("ID: 7", values[1]);
+            //Assert.AreEqual("ID: 8", values[1]);
             Assert.AreEqual("Name: Product tester", values[2]);
             Assert.AreEqual("Employer: ACME", values[3]);
             Assert.AreEqual("Location: Desert", values[4]);
@@ -95,14 +94,22 @@ namespace TechJobsTests
             Job job1 = new Job(null, EmployerName, null, JobType, JobCoreCompetency);
 
             string[] values = job1.ToString().Split(Environment.NewLine);
-            Assert.AreEqual("ID: 6", values[1]);
+            // Assert.AreEqual("ID: 7", values[1]);
             Assert.AreEqual("Name:Data not available", values[2]);
             Assert.AreEqual("Employer: ACME", values[3]);
             Assert.AreEqual("Location:Data not available", values[4]);
             Assert.AreEqual("Position Type: Quality control", values[5]);
             Assert.AreEqual("Core Competency: Persistence", values[6]);
+        }
+
+        //TEST IF ONLY ID FIELD IS PRESENT(BONUS)
+        [TestMethod]
 
 
+        public void JobContainsOnlyIdField()
+        {
+            Job job1 = new Job();
+            Assert.AreEqual("OOPS! This job does not seem to exist.",job1.ToString());
         }
 
 
