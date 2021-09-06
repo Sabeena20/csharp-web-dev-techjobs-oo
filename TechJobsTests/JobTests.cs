@@ -7,6 +7,7 @@ namespace TechJobsTests
     [TestClass]
     public class JobTests
     {
+        // TEST FOR SETTING JOB ID
         [TestMethod]
         public void TestSettingJobId()
         {
@@ -16,6 +17,7 @@ namespace TechJobsTests
             Assert.IsTrue(job2.Id - 1 == job1.Id);
         }
 
+        // TEST FOR SETTING ALL FIELDS
         [TestMethod]
 
         public void TestJobConstructorSetsAllFields()
@@ -34,6 +36,7 @@ namespace TechJobsTests
             Assert.AreEqual("Product tester", job1.Name);
         }
 
+        // TEST FOR TWO OBJECTS ARE EQUAL
         [TestMethod]
         public void TestJobsForEquality()
         {
@@ -42,8 +45,8 @@ namespace TechJobsTests
             Assert.IsFalse(job1.Equals(job2));
         }
 
+        // TEST FOR TEST NEW LINE
         [TestMethod]
-
         public void ToStringTestNewLine()
         {
             Employer EmployerName = new Employer("ACME");
@@ -60,6 +63,7 @@ namespace TechJobsTests
 
         }
 
+        // TEST FOR LABEL
         [TestMethod]
         public void ToStringTestLabel()
         {
@@ -71,14 +75,36 @@ namespace TechJobsTests
             
             string[] values = job1.ToString().Split(Environment.NewLine);
 
-            Assert.AreEqual("ID: 6", values[1]);
+            Assert.AreEqual("ID: 7", values[1]);
             Assert.AreEqual("Name: Product tester", values[2]);
             Assert.AreEqual("Employer: ACME", values[3]);
             Assert.AreEqual("Location: Desert", values[4]);
             Assert.AreEqual("Position Type: Quality control", values[5]);
             Assert.AreEqual("Core Competency: Persistence", values[6]);
+        }
+
+        // TEST FOR EMPTY FIELDS
+        [TestMethod]
+
+        public void ToStringEmptyFields()
+        {
+            Employer EmployerName = new Employer("ACME");
+            Location EmployerLocation = new Location("Desert");
+            PositionType JobType = new PositionType("Quality control");
+            CoreCompetency JobCoreCompetency = new CoreCompetency("Persistence");
+            Job job1 = new Job(null, EmployerName, null, JobType, JobCoreCompetency);
+
+            string[] values = job1.ToString().Split(Environment.NewLine);
+            Assert.AreEqual("ID: 6", values[1]);
+            Assert.AreEqual("Name:Data not available", values[2]);
+            Assert.AreEqual("Employer: ACME", values[3]);
+            Assert.AreEqual("Location:Data not available", values[4]);
+            Assert.AreEqual("Position Type: Quality control", values[5]);
+            Assert.AreEqual("Core Competency: Persistence", values[6]);
+
 
         }
+
 
     }
 }

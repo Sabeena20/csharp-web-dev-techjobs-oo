@@ -43,16 +43,75 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            return Environment.NewLine
-                + "ID: " + this.Id + Environment.NewLine
-                + "Name: " + this.Name + Environment.NewLine
-                + "Employer: " + this.EmployerName + Environment.NewLine
-                + "Location: " + this.EmployerLocation + Environment.NewLine
-                + "Position Type: " + this.JobType + Environment.NewLine
-                + "Core Competency: " + this.JobCoreCompetency + Environment.NewLine;
+            // return Environment.NewLine
+            //   + "ID: " + this.Id + Environment.NewLine
+            //  + "Name: " + this.Name + Environment.NewLine
+            //+ "Employer: " + this.EmployerName + Environment.NewLine
+            //+ "Location: " + this.EmployerLocation + Environment.NewLine
+            //+ "Position Type: " + this.JobType + Environment.NewLine
+            //+ "Core Competency:" + this.JobCoreCompetency + Environment.NewLine;
 
+            string value = "";
+            if(this.Id == 0)
+            {
+                value = value + Environment.NewLine + "ID:Data not available" + Environment.NewLine;
+            } else
+            {
+               value =  Environment.NewLine
+             + "ID: " + this.Id + Environment.NewLine;
+            }
 
+            if (this.Name == null)
+            {
+                value = value  + "Name:Data not available" + Environment.NewLine;
+            }
+            else
+            {
+                value = value
+              + "Name: " + this.Name + Environment.NewLine;
+            }
 
+            if (this.EmployerName == null)
+            {
+                value = value + "Employer:Data not available" + Environment.NewLine;
+            }
+            else
+            {
+                value = value
+              + "Employer: " + this.EmployerName + Environment.NewLine;
+            }
+
+            if (this.EmployerLocation == null)
+            {
+                value = value + "Location:Data not available" + Environment.NewLine;
+            }
+            else
+            {
+                value = value
+              + "Location: " + this.EmployerLocation + Environment.NewLine;
+            }
+
+            if (this.JobType == null)
+            {
+                value = value + "Position Type:Data not available" + Environment.NewLine;
+            }
+            else
+            {
+                value = value
+              + "Position Type: " + this.JobType + Environment.NewLine;
+            }
+
+            if (this.JobCoreCompetency == null)
+            {
+                value = value + "Core Competency:Data not available" + Environment.NewLine;
+            }
+            else
+            {
+                value = value
+              + "Core Competency: " + this.JobCoreCompetency + Environment.NewLine;
+            }
+
+            return value;
         }
 
 
