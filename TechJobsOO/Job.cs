@@ -61,7 +61,7 @@ namespace TechJobsOO
              + "ID: " + this.Id + Environment.NewLine;
             }
 
-            if (this.Name == null)
+            if (this.Name == null || this.Name == "")
             {
                 value = value  + "Name:Data not available" + Environment.NewLine;
             }
@@ -71,7 +71,7 @@ namespace TechJobsOO
               + "Name: " + this.Name + Environment.NewLine;
             }
 
-            if (this.EmployerName == null)
+            if (this.EmployerName == null || this.EmployerName.Value == "")
             {
                 value = value + "Employer:Data not available" + Environment.NewLine;
             }
@@ -81,7 +81,7 @@ namespace TechJobsOO
               + "Employer: " + this.EmployerName + Environment.NewLine;
             }
 
-            if (this.EmployerLocation == null)
+            if (this.EmployerLocation == null || this.EmployerLocation.Value == "")
             {
                 value = value + "Location:Data not available" + Environment.NewLine;
             }
@@ -91,7 +91,7 @@ namespace TechJobsOO
               + "Location: " + this.EmployerLocation + Environment.NewLine;
             }
 
-            if (this.JobType == null)
+            if (this.JobType == null || this.JobType.Value == "")
             {
                 value = value + "Position Type:Data not available" + Environment.NewLine;
             }
@@ -101,7 +101,7 @@ namespace TechJobsOO
               + "Position Type: " + this.JobType + Environment.NewLine;
             }
 
-            if (this.JobCoreCompetency == null)
+            if (this.JobCoreCompetency == null || this.JobCoreCompetency.Value == "")
             {
                 value = value + "Core Competency:Data not available" + Environment.NewLine;
             }
